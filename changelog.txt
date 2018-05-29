@@ -1,0 +1,5 @@
+May 29th:
+1.changed i++ to j++
+2.changed j++ to j+1
+3.add bracket to if statement
+4.add '' to .join() function
