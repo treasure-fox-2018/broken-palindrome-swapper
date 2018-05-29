@@ -8,16 +8,18 @@
 function palindromeSwapper(str) {
   let newStr = '';
   for (var i = 0; i < str.length; i++) {
-    for (var j = 0; j < str.length; i++) {
-      if (i === j) {
-        newStr += str[j++];
+    for (var j = 0; j < str.length; j++) { //previous was i++ , it should be j++ to increase j value each loop
+      if (i === j+1 && i !== 0) { // change i === j+1 and add !==0 , this will skip swap when index i = 0 to approach test case 2
+        newStr += str[j+1]; //previous was j++ , we should add to string index j+1, to swap with next index
         newStr += str[j];
         j++;
       } else {
         newStr += str[j];
       }
     }
+    debugger; //add debugger
     if (isPalindrome(newStr)) return true;
+    newStr='';
   }
   return false;
 }
@@ -29,10 +31,11 @@ function palindromeSwapper(str) {
  * @returns {boolean} true bila kata adalah palindrom
  */
 function isPalindrome(str) {
-  if (str.split('').reverse().join() === str) return console.log(true);
-  return console.log(false);
+  if (str.split('').reverse().join("") === str) return true; //previous was join() this make the joined string splitted by ',', should be join("")
+  return false;
 }
 
 console.log(palindromeSwapper('arcecar')); // TRUE
 console.log(palindromeSwapper('racecar')); // TRUE
+console.log(palindromeSwapper('raecaer')); // TRUE
 console.log(palindromeSwapper('recacar')); // FALSE
