@@ -8,15 +8,16 @@
 function palindromeSwapper(str) {
   let newStr = '';
   for (var i = 0; i < str.length; i++) {
-    for (var j = 0; j < str.length; i++) {
+    for (var j = 0; j < str.length; i++) { //i++ seharusnya j++
       if (i === j) {
-        newStr += str[j++];
+        newStr += str[j++]; //j++ hanya akan memunculkan index genap seharusnya yg dipakai index setelah j (j+1)
         newStr += str[j];
         j++;
       } else {
         newStr += str[j];
       }
     }
+    debugger;
     if (isPalindrome(newStr)) return true;
   }
   return false;
